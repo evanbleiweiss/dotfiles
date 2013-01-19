@@ -1,7 +1,7 @@
 
 " lazy method of appending this onto your .vimrc ":w! >> ~/.vimrc"
 
-color grb3
+color grb
 
 " Adjust tabs etc
 set shiftwidth=2                " use indents of 4 spaces
@@ -11,15 +11,38 @@ set softtabstop=2
 set winheight=10
 set winminheight=5              " windows must be 5 lines high
  
-""""""""""""""""""""
+set mouse=a                     " automatically enable mouse usage
+"set spell                      " spell checking on
+set showmode                    " display the current mode
+
+set clipboard=unnamedplus       " use + register for copy-paste (linux)
+" Wrapped lines nav go up/down to next row, rather than next line
+nnoremap j gj
+nnoremap k gk
+
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
+
+    
+"""""""""""""""""
 "Status line
 """"""""""""""""""""
-set laststatus=2
 " Broken down into easily includeable segments
 set statusline=%<%f\    " Filename
 set statusline+=%w%h%m%r " Options
 set statusline+=%{fugitive#statusline()} "  Git Hotness
-set statusline+=\ [%{&ff}/%Y]            " filetype
+"set statusline+=\ [%{&ff}/%Y]            " filetype
 set statusline+=\ [%{getcwd()}]          " current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 
+":set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+
+" Fugitive {
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
+"}
