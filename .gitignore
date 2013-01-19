@@ -2,7 +2,6 @@
 
 #ignored
 #*
-.*/
 .ICEauthority
 .Xauthority
 .apport-ignore.xml
@@ -61,7 +60,7 @@ railsready.sh
 railsready/
 vmware/
 xorg.conf.new
-# 
+.*/
 
 #Mostly this file is whitelist, rather than ignore
 !.bashrc
