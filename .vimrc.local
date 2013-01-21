@@ -1,7 +1,7 @@
 
 " lazy method of appending this onto your .vimrc ":w! >> ~/.vimrc"
 
-color grb
+color grb3
 
 " Adjust tabs etc
 set shiftwidth=2                " use indents of 4 spaces
@@ -9,11 +9,19 @@ set expandtab                   " tabs are spaces, not tabs
 set tabstop=2                   " an indentation every four columns
 set softtabstop=2
 set winheight=10
-set winminheight=5              " windows must be 5 lines high
+set winminheight=4              " windows must be 5 lines high
+set winminwidth=9
  
 set mouse=a                     " automatically enable mouse usage
 "set spell                      " spell checking on
 set showmode                    " display the current mode
+
+" Maximize visible screen space on changing window focus;no smaller than
+" winminheight
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>|
+map <C-H> <C-W>h<C-W>|
 
 set clipboard=unnamedplus       " use + register for copy-paste (linux)
 " Wrapped lines nav go up/down to next row, rather than next line
