@@ -1,7 +1,8 @@
-
-" lazy method of appending this onto your .vimrc ":w! >> ~/.vimrc"
+" lazy method of appending onto your .vimrc ":w! >> ~/.vimrc"
 
 color grb3
+" Configure preferred tools|apps
+set grepprg=ack-grep --column "\ -all "use ack-grep not grep
 
 " Adjust tabs etc
 set shiftwidth=2                " use indents of 4 spaces
@@ -20,8 +21,8 @@ set showmode                    " display the current mode
 " winminheight
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
-map <C-L> <C-W>l<C-W>|
-map <C-H> <C-W>h<C-W>|
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
 
 set clipboard=unnamedplus       " use + register for copy-paste (linux)
 " Wrapped lines nav go up/down to next row, rather than next line
