@@ -42,6 +42,7 @@
 .xsession-errors.old
 .zlogin
 .zshrc
+.vim/.netrwhist
 Apps/
 Code/
 Desktop/
