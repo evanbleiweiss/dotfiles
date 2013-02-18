@@ -2,7 +2,7 @@
 
 color grb3
 " Configure preferred tools|apps
-set grepprg=ack-grep --column "\ -all "use ack-grep not grep
+set grepprg=ack-grep "\ -column -all "use ack-grep not grep
 
 " Adjust tabs etc
 set shiftwidth=2                " use indents of 4 spaces
@@ -32,6 +32,8 @@ nnoremap k gk
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
+" Toggle relative lines and actual line numbers
+nnoremap <F3> :NumbersToggle<CR>
     
 """""""""""""""""
 "Status line
