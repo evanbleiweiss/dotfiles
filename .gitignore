@@ -25,6 +25,7 @@
 .profile
 .pry_history
 .pulse-cookie
+.ri
 .steampath
 .steampid
 .swp
@@ -55,6 +56,8 @@ Music/
 Pictures/
 Ubuntu One/
 Videos/
+VirtualBox VMs/
+agile_data/
 dotfiles/
 examples.desktop
 fontconfig/
