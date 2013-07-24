@@ -116,3 +116,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 . /usr/share/autojump/autojump.sh
 #show git branch
 # [[ $- == *i* ]]   &&   . "$HOME/git-prompt.sh" #something isnt working
+
+#ENVIRONMENT VARS
+export PAGER=/usr/bin/less
+export EDITOR=/usr/bin/vi
+#tmuxinator https://github.com/aziz/tmuxinator
+[[ -s /home/evan/.tmuxinator/scripts/tmuxinator ]] && source /home/evan/.tmuxinator/scripts/tmuxinator
