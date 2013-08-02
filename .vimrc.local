@@ -1,6 +1,6 @@
 " lazy method of appending onto your .vimrc ":w! >> ~/.vimrc"
 
-color grb3
+color Dark "grb3
 " Configure preferred tools|apps
 set grepprg=ack-grep "\ -column -all "use ack-grep not grep
 
