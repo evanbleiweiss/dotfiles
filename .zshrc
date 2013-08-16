@@ -46,3 +46,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=$PATH:/home/evan/.rvm/gems/ruby-2.0.0-p247/bin:/home/evan/.rvm/gems/ruby-2.0.0-p247@global/bin:/home/evan/.rvm/rubies/ruby-2.0.0-p247/bin:/home/evan/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
+
+# RVM
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+__rvm_project_rvmrc
+ 
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# VIM
+export EDITOR=/usr/bin/vim
