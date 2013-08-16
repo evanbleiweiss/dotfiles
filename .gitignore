@@ -43,9 +43,9 @@
 .vimviews
 .xsession-errors
 .xsession-errors.old
-.zlogin
-.zshrc
 .vim/.netrwhist
+.zsh_history
+.zsh-update
 Apps/
 Code/
 Desktop/
