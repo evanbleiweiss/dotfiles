@@ -1,6 +1,8 @@
 " This is Gary Bernhardt's .vimrc file
 " vim:set ts=2 sts=2 sw=2 expandtab:
 
+autocmd!
+
 call pathogen#runtime_append_all_bundles()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -24,9 +26,8 @@ set hlsearch
 set ignorecase smartcase
 " highlight current line
 set cursorline
-set cmdheight=2
+set cmdheight=1
 set switchbuf=useopen
-set numberwidth=5
 set showtabline=2
 set winwidth=79
 " This makes RVM work inside Vim. I have no idea why.
@@ -56,6 +57,8 @@ set wildmode=longest,list
 " make tab completion for files/buffers act like bash
 set wildmenu
 let mapleader=","
+" Fix slow O inserts
+:set timeout timeoutlen=1000 ttimeoutlen=100
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CUSTOM AUTOCMDS
@@ -80,7 +83,7 @@ augroup vimrcEx
   autocmd BufRead *.markdown  set ai formatoptions=tcroqn2 comments=n:&gt;
 
   " Indent p tags
-  autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
+  " autocmd FileType html,eruby if g:html_indent_tags !~ '\\|p\>' | let g:html_indent_tags .= '\|p\|li\|dt\|dd' | endif
 
   " Don't syntax highlight markdown because it's often wrong
   autocmd! FileType mkd setlocal syn=off
@@ -122,6 +125,18 @@ function! MapCR()
 endfunction
 call MapCR()
 nnoremap <leader><leader> <c-^>
+" Close all other windows, open a vertical split, and open this file's test
+" alternate in it.
+nnoremap <leader>s :call FocusOnFile()<cr>
+function! FocusOnFile()
+  tabnew %
+  normal! v
+  normal! l
+  call OpenTestAlternate()
+  normal! h
+endfunction
+" Reload in chrome
+map <leader>l :w\|:silent !reload-chrome<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MULTIPURPOSE TAB KEY
@@ -240,7 +255,7 @@ function! ShowRoutes()
   " Delete everything
   :normal 1GdG
   " Put routes output in buffer
-  :0r! bundle exec rake -s routes
+  :0r! zeus rake -s routes
   " Size window to number of lines (1 plus rake output length)
   :exec ":normal " . line("$") . "_ "
   " Move cursor to bottom
@@ -255,7 +270,7 @@ map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
 map <leader>gh :CommandTFlush<cr>\|:CommandT app/helpers<cr>
 map <leader>gl :CommandTFlush<cr>\|:CommandT lib<cr>
 map <leader>gp :CommandTFlush<cr>\|:CommandT public<cr>
-map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets/sass<cr>
+map <leader>gs :CommandTFlush<cr>\|:CommandT public/stylesheets<cr>
 map <leader>gf :CommandTFlush<cr>\|:CommandT features<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 map <leader>gt :CommandTFlush<cr>\|:CommandTTag<cr>
@@ -279,7 +294,7 @@ function! AlternateForCurrentFile()
     if in_app
       let new_file = substitute(new_file, '^app/', '', '')
     end
-    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
+    let new_file = substitute(new_file, '\.e\?rb$', '_spec.rb', '')
     let new_file = 'spec/' . new_file
   else
     let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
@@ -295,11 +310,11 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RUNNING TESTS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>t :call RunTestFile()<cr>
-map <leader>T :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!script/features<cr>
-map <leader>w :w\|:!script/features --profile wip<cr>
+map <leader>t :silent call RunTestFile()<cr>
+map <leader>T :silent call RunNearestTest()<cr>
+map <leader>a :silent call RunTests('')<cr>
+map <leader>c :w\|:silent !script/features<cr>
+map <leader>w :w\|:silent !script/features --profile wip<cr>
 
 function! RunTestFile(...)
     if a:0
@@ -320,7 +335,7 @@ endfunction
 
 function! RunNearestTest()
     let spec_line_number = line('.')
-    call RunTestFile(":" . spec_line_number . " -b")
+    call RunTestFile(":" . spec_line_number)
 endfunction
 
 function! SetTestFile()
@@ -330,13 +345,9 @@ endfunction
 
 function! RunTests(filename)
     " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    if expand("%") != ""
+      :w
+    end
     if match(a:filename, '\.feature$') != -1
         exec ":!script/features " . a:filename
     else
@@ -377,6 +388,14 @@ command! OpenChangedFiles :call OpenChangedFiles()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command! InsertTime :normal a<c-r>=strftime('%F %H:%M:%S.0 %z')<cr>
 
+command! FindConditionals :normal /\<if\>\|\<unless\>\|\<and\>\|\<or\>\|||\|&&<cr>
+
+command! GdiffInTab tabedit %|vsplit|Gdiff
+nnoremap <leader>d :GdiffInTab<cr>
+nnoremap <leader>D :tabclose<cr>
+
+set foldmethod=manual
+set nofoldenable
 
 " Use local vimrc if available {
     if filereadable(expand("~/.vimrc.local"))
