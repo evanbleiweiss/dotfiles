@@ -1,3 +1,5 @@
+--nosql 
+
 --type-add
 html=.haml
 --type-add
