@@ -32,6 +32,7 @@ nnoremap k gk
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 
+set number
 " Toggle relative lines and actual line numbers
 nnoremap <F3> :NumbersToggle<CR>
     
