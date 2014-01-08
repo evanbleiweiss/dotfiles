@@ -70,3 +70,6 @@ imap <buffer> <F4> <Plug>(xmpfilter-mark)
 
 " vim-ruby-minitest
 set completefunc=syntaxcomplete#Complete
+
+" map buffer navigation
+nnoremap <silent> <leader>b :bp<CR>
