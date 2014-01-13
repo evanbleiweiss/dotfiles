@@ -72,4 +72,8 @@ imap <buffer> <F4> <Plug>(xmpfilter-mark)
 set completefunc=syntaxcomplete#Complete
 
 " map buffer navigation
-nnoremap <silent> <leader>b :bp<CR>
+nnoremap <silent> <leader>m :bp<CR>
+
+" Command-T mappings
+nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>b :CommandTBuffer<CR>
