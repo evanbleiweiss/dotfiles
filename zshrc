@@ -63,5 +63,5 @@ eval "$(rbenv init -)"
 export EDITOR=/usr/bin/vim
 
 # Vim Keybindings
-bindkey -v
+# bindkey -v
 
