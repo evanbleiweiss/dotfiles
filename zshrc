@@ -11,6 +11,8 @@ ZSH_THEME="lukerandall" #eastwood, fox
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias node="nodejs"
+alias gs="git status -s"
+alias ack="ack-grep"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
