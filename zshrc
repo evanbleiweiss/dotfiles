@@ -10,6 +10,7 @@ ZSH_THEME="lukerandall" #eastwood, fox
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias node="nodejs"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -40,7 +41,7 @@ ZSH_THEME="lukerandall" #eastwood, fox
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump bundler capistrano command-not-found gem git heroku rails zeus)
+plugins=(autojump bundler command-not-found cp debian git git-extras heroku rails vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
