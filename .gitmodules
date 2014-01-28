@@ -28,3 +28,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/bundle/match-tag"]
+	path = vim/bundle/match-tag
+	url = https://github.com/gregsexton/MatchTag.git
