@@ -59,15 +59,6 @@ nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 "}
 
-" vim-ruby-xmpfilter
-nmap <buffer> <F5> <Plug>(xmpfilter-run)
-xmap <buffer> <F5> <Plug>(xmpfilter-run)
-imap <buffer> <F5> <Plug>(xmpfilter-run)
-
-nmap <buffer> <F4> <Plug>(xmpfilter-mark)
-xmap <buffer> <F4> <Plug>(xmpfilter-mark)
-imap <buffer> <F4> <Plug>(xmpfilter-mark)
-
 " vim-ruby-minitest
 set completefunc=syntaxcomplete#Complete
 
