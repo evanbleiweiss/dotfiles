@@ -34,3 +34,6 @@
 [submodule "vim/bundle/vim-tags"]
 	path = vim/bundle/vim-tags
 	url = git@github.com:szw/vim-tags.git
+[submodule "vim/bundle/YouCompleteMe"]
+	path = vim/bundle/YouCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
