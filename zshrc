@@ -13,6 +13,7 @@ ZSH_THEME="lukerandall" #eastwood, fox
 alias node="nodejs"
 alias gs="git status -s"
 alias ack="ack-grep"
+alias ctagsgenerate="ctags -f .tags --exclude=.git --exclude=log --exclude='*.sql' --exclude=tmp --exclude='*\.min\.*' -R . $(bundle list --paths)"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
