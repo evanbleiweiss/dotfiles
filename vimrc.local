@@ -49,7 +49,6 @@ set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 
 ":set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 
-
 " Fugitive {
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -59,12 +58,15 @@ nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 "}
 
-" vim-ruby-minitest
-set completefunc=syntaxcomplete#Complete
-
 " map buffer navigation
 nnoremap <silent> <leader>m :bp<CR>
 
 " Command-T mappings
-nnoremap <silent> <Leader>t :CommandT<CR>
+nnoremap <silent> <Leader>; :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
+
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
