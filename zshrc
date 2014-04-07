@@ -44,7 +44,7 @@ alias ctagsgenerate="ctags -f .tags --exclude=.git --exclude=log --exclude='*.sq
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(autojump bundler command-not-found cp debian extract git git-extras heroku rails vi-mode)
+plugins=(autojump bundler command-not-found cp debian extract git git-extras heroku rails vi-mode ruby)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -66,6 +66,17 @@ eval "$(rbenv init -)"
 # VIM
 export EDITOR=/usr/bin/vim
 
+# Use NPM in home dir (Directories must exist)
+export NPM_PACKAGES="$HOME/.npm-packages"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+
 # Vim Keybindings
 bindkey -v
 
+#Node / NPM
+# see https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo-linux.md
+export PATH="$NPM_PACKAGES/bin:$PATH"
+  # Unset manpath so we can inherit from /etc/manpath via the `manpath`
+  # command
+unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
