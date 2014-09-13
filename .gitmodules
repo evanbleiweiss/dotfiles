@@ -43,3 +43,6 @@
 [submodule "vim/bundle/vim-dart"]
 	path = vim/bundle/vim-dart
 	url = git://github.com/bartlomiejdanek/vim-dart.git
+[submodule "rbenv"]
+	path = rbenv
+	url = https://github.com/sstephenson/rbenv.git
