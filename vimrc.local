@@ -61,7 +61,8 @@ nnoremap <silent> <leader>gp :Git push<CR>
 " map buffer navigation
 nnoremap <silent> <leader>m :bp<CR>
 
-" Command-T mappings
+" Command-T mappings and config
+let g:CommandTWildIgnore=&wildignore . ",**/bower_components/*" . ",**/node_modules/*" 
 nnoremap <silent> <Leader>; :CommandT<CR>
 nnoremap <silent> <Leader>b :CommandTBuffer<CR>
 
