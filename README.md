@@ -10,3 +10,6 @@ Many of the tools are configured as git submodules (as they are repos in their o
 `git submodule add git@github.com:user/repo.git vim/bundle/repo`
 
 I think you also have to run `git submodule init` 
+
+## Additional useful stuff
+https://github.com/thoughtbot/laptop
