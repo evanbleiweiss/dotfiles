@@ -13,3 +13,6 @@ I think you also have to run `git submodule init`
 
 ## Additional useful stuff
 https://github.com/thoughtbot/laptop
+
+### Ubuntu
+Map Caps-lock to Escape: In dconf Editor - org.gnome.desktop.input-sources.xkb-options should have the value ['caps:escape']
