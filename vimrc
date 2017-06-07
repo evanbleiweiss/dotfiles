@@ -32,7 +32,7 @@ Plugin 'vim-airline/vim-airline' "nicer status bar
 Plugin 'vim-airline/vim-airline-themes' "nicer status bar themes
 Plugin 'myusuf3/numbers.vim' "show relative line numbers for quick reference
 Plugin 'scrooloose/syntastic' "syntax checking
-
+Plugin 'tpope/vim-commentary' "comment stuff
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -53,6 +53,7 @@ filetype plugin indent on    " required
 """"""""""""""""""""""""""
 set t_Co=256 " 256 colors
 set background=dark
+syntax on                        " Enable highlighting for syntax
 color desert 
 let g:airline_theme="badwolf"
 
@@ -64,7 +65,6 @@ set softtabstop=2
 set winheight=10
 set winminheight=4              " windows must be 5 lines high
 set winminwidth=9
-
 
 """"""""""""""""""""""""""
 "        ERGONOMICS 
@@ -99,11 +99,14 @@ set cmdheight=1
 set switchbuf=useopen
 set showtabline=2
 set winwidth=79
-" This makes RVM work inside Vim. I have no idea why.
-set shell=bash
 " Prevent Vim from clobbering the scrollback buffer. See
 " http://www.shallowsky.com/linux/noaltscreen.html
 set t_ti= t_te=
+set showcmd                     " display incomplete commands
+set wildmode=longest,list       " use emacs-style tab completion when selecting files, etc 
+set wildmenu                    " make tab completion for files/buffers act like bash
+" This makes RVM work inside Vim. I have no idea why.
+" set shell=bash
 
 nnoremap <leader><leader> <c-^> "Toggle last open buffer
 map <leader>y "*y
@@ -168,7 +171,6 @@ map <leader>n :call RenameFile()<cr>
 """"""""""""""""""""""""""
 "       FILE MGMT 
 """"""""""""""""""""""""""
-
 set clipboard=unnamedplus       " use + register for copy-paste (linux)
 
 " OpenChangedFiles COMMAND
