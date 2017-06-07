@@ -1,30 +1,9 @@
-[submodule "vim/bundle/command-t"]
-	path = vim/bundle/command-t
-	url = https://github.com/wincent/Command-T
-[submodule "vim/bundle/ctrlp.vim"]
-	path = vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim
-[submodule "vim/bundle/vim-fugitive"]
-	path = vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive
-[submodule "vim/bundle/vim-commentary"]
-	path = vim/bundle/vim-commentary
-	url = https://github.com/tpope/vim-commentary
-[submodule "vim/bundle/vim-rails"]
-	path = vim/bundle/vim-rails
-	url = https://github.com/tpope/vim-rails
-[submodule "vim/bundle/vim-ruby"]
-	path = vim/bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby
 [submodule "vim/bundle/numbers.vim"]
 	path = vim/bundle/numbers.vim
 	url = https://github.com/myusuf3/numbers.vim.git
 [submodule "vim/bundle/vim-dispatch"]
 	path = vim/bundle/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch
-[submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
@@ -34,15 +13,6 @@
 [submodule "vim/bundle/vim-tags"]
 	path = vim/bundle/vim-tags
 	url = git@github.com:szw/vim-tags.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = git@github.com:Valloric/YouCompleteMe.git
-[submodule "vim/bundle/vim-rspec"]
-	path = vim/bundle/vim-rspec
-	url = git@github.com:thoughtbot/vim-rspec.git
-[submodule "vim/bundle/vim-dart"]
-	path = vim/bundle/vim-dart
-	url = git://github.com/bartlomiejdanek/vim-dart.git
 [submodule "rbenv"]
 	path = rbenv
 	url = https://github.com/sstephenson/rbenv.git
