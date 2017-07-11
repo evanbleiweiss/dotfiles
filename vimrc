@@ -18,7 +18,7 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -31,8 +31,14 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'vim-airline/vim-airline' "nicer status bar
 Plugin 'vim-airline/vim-airline-themes' "nicer status bar themes
 Plugin 'myusuf3/numbers.vim' "show relative line numbers for quick reference
-Plugin 'scrooloose/syntastic' "syntax checking
+Plugin 'pangloss/vim-javascript' "syntax highlight
+Plugin 'vim-syntastic/syntastic' "syntax checking
+Plugin 'mxw/vim-jsx' "React-jsx helper
 Plugin 'tpope/vim-commentary' "comment stuff
+Plugin 'ctrlpvim/ctrlp.vim' "file finder
+Plugin 'mattn/emmet-vim' "html writing helper
+Plugin 'commentary.vim' "easy comments
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,7 +60,7 @@ filetype plugin indent on    " required
 set t_Co=256 " 256 colors
 set background=dark
 syntax on                        " Enable highlighting for syntax
-color desert 
+color molokai
 let g:airline_theme="badwolf"
 
 " Adjust tabs etc
@@ -209,3 +215,35 @@ nnoremap <silent> <leader>gp :Git push<CR>
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
+
+" Selecta File Finder
+" Run a given vim command on the results of fuzzy selecting from a given shell
+" command. See usage below.
+function! SelectaCommand(choice_command, selecta_args, vim_command)
+    try
+        let selection = system(a:choice_command . " | selecta " . a:selecta_args)
+    catch /Vim:Interrupt/
+        " Swallow the ^C so that the redraw below happens; otherwise there will be
+        " leftovers from selecta on the screen
+        redraw!
+        return
+    endtry
+    redraw!
+    exec a:vim_command . " " . selection
+endfunction
+
+" Find all files in all non-dot directories starting in the working directory.
+" Fuzzy select one of those. Open the selected file with :e.
+nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":e")<cr>
+
+" Syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files 
+
+let g:javascript_plugin_flow = 1
+let g:javascript_plugin_jsdoc = 1
