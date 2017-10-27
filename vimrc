@@ -63,14 +63,6 @@ syntax on                        " Enable highlighting for syntax
 color molokai
 let g:airline_theme="badwolf"
 
-" Adjust tabs etc
-set shiftwidth=2                " use indents of 4 spaces
-set expandtab                   " tabs are spaces, not tabs
-set tabstop=2                   " an indentation every four columns
-set softtabstop=2
-set winheight=10
-set winminheight=4              " windows must be 5 lines high
-set winminwidth=9
 
 """"""""""""""""""""""""""
 "        ERGONOMICS 
@@ -78,10 +70,10 @@ set winminwidth=9
 let mapleader=","
 set mouse=a                     " automatically enable mouse usage
 " Adjust tabs etc
+set tabstop=2                   " https://stackoverflow.com/a/1878983
 set shiftwidth=2                " use indents of 4 spaces
+set softtabstop=1
 set expandtab                   " tabs are spaces, not tabs
-set tabstop=2                   " an indentation every four columns
-set softtabstop=2
 set winheight=10
 set winminheight=4              " windows must be 5 lines high
 set winminwidth=9
@@ -90,10 +82,6 @@ set scrolloff=3                 " keep more context when scrolling off the end o
 set ignorecase smartcase        " searches case-sensitive only if they contain upper-case characters
 set hidden                      " allow unsaved background buffers and remember marks/undo for them
 set history=10000               " remember more commands and search history
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 set autoindent
 set laststatus=2
 set showmatch
@@ -247,3 +235,6 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
+
+" CTRLP use Silver Searcher
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
