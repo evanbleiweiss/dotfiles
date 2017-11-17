@@ -238,3 +238,7 @@ let g:javascript_plugin_jsdoc = 1
 
 " CTRLP use Silver Searcher
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+let g:ctrlp_ag_ignores = '--ignore .git
+    \ --ignore "deps/*"
+    \ --ignore "_build/*"
+    \ --ignore "node_modules/*"'
