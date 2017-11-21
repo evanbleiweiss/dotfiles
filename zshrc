@@ -22,10 +22,10 @@ alias vulk='ssh -tA pair@dev.vulk.co'
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=13
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -59,6 +59,14 @@ export PATH="$HOME/bin:$PATH"
 
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
 
+# Chruby - https://github.com/postmodern/chruby
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
+# RBENV
+# export PATH="$PATH:$HOME/.rbenv/bin"
+# eval "$(rbenv init -)"
+#
 # RVM
 # [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
 # __rvm_project_rvmrc
@@ -67,10 +75,6 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 # Added by the Heroku Toolbelt
 export PATH="$PATH:/usr/local/heroku/bin"
 
-# RBENV
-export PATH="$PATH:$HOME/.rbenv/bin"
-eval "$(rbenv init -)"
-
 # VIM
 export EDITOR=/usr/bin/vim
 
@@ -78,7 +82,6 @@ export EDITOR=/usr/bin/vim
 #bindkey -v
 
 #Node / NPM
-
 # Use NPM in home dir (Directories must exist)
 export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
