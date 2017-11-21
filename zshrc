@@ -53,6 +53,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+#my binz
+export PATH=$HOME/bins:$PATH
+
 # use node in homedir
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
@@ -62,7 +65,6 @@ export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/
 # Chruby - https://github.com/postmodern/chruby
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
-
 # RBENV
 # export PATH="$PATH:$HOME/.rbenv/bin"
 # eval "$(rbenv init -)"
